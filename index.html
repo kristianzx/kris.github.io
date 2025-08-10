@@ -1,111 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIGGER</title>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Centered Button</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Umaasa - Lyrics</title>
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f5f5f5;
-      font-family: Arial, sans-serif;
-      flex-direction: column;
-    }
-
-    h1, p {
-      text-align: center;
-    }
-
-    .black-button {
-      background-color: black;
+      background: black;
       color: white;
-      border: none;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-      margin-top: 20px;
-    }
-
-    .black-button:hover {
-      background-color: #333;
-    }
-  </style>
-</head>
-<body>
-  <h1>WELCOME!</h1>
-  <p>Press this button if ur not GAY:</p>
-  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
-     class="black-button" 
-     target="_blank">IM NOT GAY</a>
-</body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Website with Side Ads</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    /* Fixed ad containers */
-    .left-ad, .right-ad {
-      position: fixed;
-      top: 0;
-      width: 190px;
-      height: 100vh;
-      background-color: #f0f0f0;
+      font-family: system-ui, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1;
-    }
-
-    .left-ad {
-      left: 0;
-    }
-
-    .right-ad {
-      right: 0;
-    }
-
-    .left-ad img, .right-ad img {
-      max-width: 200%;
-      max-height: 500%;
-    }
-
-    /* Main content area */
-    .main-content {
-      margin: 0 140px; /* Leave space for side ads */
-      padding: 20px;
       text-align: center;
+      padding: 1rem;
+    }
+
+    .lyrics-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .line {
+      opacity: 0;
+      transform: translateY(5px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
-
-  <!-- Left Ad -->
-  <div class="left-ad">
-    <img src="7m5ypq_large.png" alt="Left Ad">
+  <div class="lyrics-container" id="lyrics">
+    <div class="title line" style="animation-delay: 0s;">HII ASK KO LANG AKO PA BA?</div>
+    <!-- Replace these placeholders with the real lyrics -->
+    <div class="line" style="animation-delay: 2s;">AYUS LANG KUNG MAY MAHAL KA NG IBA</div>
+    <div class="line" style="animation-delay: 4s;">PERO TANDAAN MO NA MAHAL KITA</div>
+    <div class="line" style="animation-delay: 6s;">I LOVE YOU</div>
+    <div class="line" style="animation-delay: 8s;">I MISS YOU</div>
+    <div class="line" style="animation-delay: 10s;">IKAW PADIN NASA ISIP KO</div>
   </div>
+<script>
+    const lines = document.querySelectorAll('.line');
+    const delayBetweenLines = 2000; // 2 seconds
+    let totalTime = 0;
 
-  <!-- Right Ad -->
-  <div class="right-ad">
-    <img src="mickey-mouse-fuck-7425.png" alt="Right Ad">
-  </div>
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        line.style.animationDelay = "0s";
+        line.style.opacity = "1";
+        line.style.transform = "translateY(0)";
+      }, index * delayBetweenLines);
+      totalTime = index * delayBetweenLines;
+    });
+
+    // Redirect after last line is shown (extra 2 seconds for pause)
+    setTimeout(() => {
+      window.location.href = "https://www.youtube.com/watch?v=GX3X9PmQOHY";
+    }, totalTime + delayBetweenLines);
+  </script>
+</body>
+</html>
