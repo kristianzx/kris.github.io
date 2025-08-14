@@ -1,77 +1,87 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Umaasa - Lyrics</title>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: black;
-      color: white;
-      font-family: system-ui, sans-serif;
+    body {
+      font-family: Arial, sans-serif;
+      background: #7e97a8;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: #a4c2ba;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(210, 234, 236, 0.5);
+      width: 300px;
       text-align: center;
-      padding: 1rem;
     }
-
-    .lyrics-container {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+    h2 {
+      margin-bottom: 20px;
+      color: #fff;
     }
-
-    .line {
-      opacity: 0;
-      transform: translateY(5px);
-      animation: fadeIn 1s ease forwards;
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
     }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .title {
-      font-size: 2rem;
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background: #50ae15;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
       font-weight: bold;
-      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #3e8f12;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="lyrics-container" id="lyrics">
-    <div class="title line" style="animation-delay: 0s;">HII ASK KO LANG AKO PA BA?</div>
-    <!-- Replace these placeholders with the real lyrics -->
-    <div class="line" style="animation-delay: 2s;">AYUS LANG KUNG MAY MAHAL KA NG IBA</div>
-    <div class="line" style="animation-delay: 4s;">PERO TANDAAN MO NA MAHAL KITA</div>
-    <div class="line" style="animation-delay: 6s;">I LOVE YOU</div>
-    <div class="line" style="animation-delay: 8s;">I MISS YOU</div>
-    <div class="line" style="animation-delay: 10s;">IKAW PADIN NASA ISIP KO</div>
+
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button class="btn" onclick="checkLogin()">Login</button>
+    <p class="error" id="error-msg">Invalid username or password</p>
   </div>
-<script>
-    const lines = document.querySelectorAll('.line');
-    const delayBetweenLines = 2000; // 2 seconds
-    let totalTime = 0;
 
-    lines.forEach((line, index) => {
-      setTimeout(() => {
-        line.style.animationDelay = "0s";
-        line.style.opacity = "1";
-        line.style.transform = "translateY(0)";
-      }, index * delayBetweenLines);
-      totalTime = index * delayBetweenLines;
-    });
+  <script>
+    // 🔹 CHANGE YOUR USERNAME & PASSWORD HERE
+    const validUser = "admin";   // <-- Edit username
+    const validPass = "12345678";    // <-- Edit password
 
-    // Redirect after last line is shown (extra 2 seconds for pause)
-    setTimeout(() => {
-      window.location.href = "https://www.youtube.com/watch?v=GX3X9PmQOHY";
-    }, totalTime + delayBetweenLines);
+    // 🔹 CHANGE THE WEBSITE TO REDIRECT TO
+    const redirectURL = "https://reemans.github.io/heartstopper/"; // <-- Edit link
+
+    function checkLogin() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const errorMsg = document.getElementById("error-msg");
+
+      if (user === validUser && pass === validPass) {
+        window.location.href = redirectURL;
+      } else {
+        errorMsg.style.display = "block";
+      }
+    }
   </script>
+
 </body>
 </html>
